@@ -16,3 +16,22 @@ public:
         
     }
 };
+
+
+// recursive solution
+
+class Solution {
+public:
+
+ListNode* reverseList(ListNode *head) {
+    if(head == nullptr || head->next == nullptr) return head;
+
+    ListNode *prev = head->next;
+    head->next = NULL;
+    ListNode *next = reverseList(prev);
+    prev->next = head;
+
+    return next;
+   }
+};
+
