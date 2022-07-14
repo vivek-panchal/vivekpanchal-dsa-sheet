@@ -19,3 +19,29 @@ public:
             return false;
     }
 };
+
+
+// PAIR WALA SOLUTION
+
+class Solution {
+public:
+    pair<int,bool> solve(TreeNode*root){
+        if(root==NULL)
+            return make_pair(0,true);
+        pair<int,bool> leftAns= solve(root->left);
+        pair<int,bool> rightAns =solve(root->right);
+        
+        bool diff = abs(leftAns.first-rightAns.first)<=1;
+        if(rightAns.second&&leftAns.second&&diff){
+            return make_pair(max(leftAns.first,rightAns.first)+1,true);
+        }
+        else{
+            return make_pair(max(leftAns.first,rightAns.first)+1,false);
+        }
+            
+    }
+    bool isBalanced(TreeNode* root) {
+        pair<int,bool> ans=solve(root);
+        return ans.second;
+    }
+};
