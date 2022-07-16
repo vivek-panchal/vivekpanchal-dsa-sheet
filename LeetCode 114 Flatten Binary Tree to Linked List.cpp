@@ -10,13 +10,9 @@ public:
                     prev=prev->right;
                 prev->right=curr->right;
                 curr->right=curr->left;
+                //left pointer ko Null per point krana bhi hai
+                curr->left=NULL:
             }
-            curr=curr->right;
-        }
-        //left pointer ko Null per point krana bhi hai
-        curr=root;
-        while(curr!=NULL){
-            curr->left=NULL;
             curr=curr->right;
         }
     }
