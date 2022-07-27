@@ -47,6 +47,7 @@ public:
             // heap me se jo elemnet nikala tha uske aage vala element ager hai to vo dal do heap me
             // else break kar ke bhar aa jao bcs abb jo range aayegi vo confirm nhi hai ki sari list ke elemrnt usme ho
             if(temp -> col + 1 < nums[temp -> row].size()){
+                //update maxi
                 maxi = max(maxi, nums[temp -> row][temp -> col + 1]);
                 Info* toPush = new Info(nums[temp -> row][temp -> col + 1], temp -> row, temp -> col + 1);
                 minHeap.push(toPush);
